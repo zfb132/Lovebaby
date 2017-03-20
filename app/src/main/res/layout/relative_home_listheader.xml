@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/linear_home"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/colorHome">
+
+
+        <ImageView
+            android:id="@+id/img_setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/icon_setting" />
+
+        <ImageView
+            android:id="@+id/img_email"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/img_setting"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="22dp"
+            android:src="@drawable/icon_email" />
+
+        <com.whuzfb.lovebaby.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/img_baby"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/splash"
+            app:civ_border_width="1dp"
+            app:civ_border_color="#FF000000"
+            android:layout_alignTop="@+id/img_setting"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp" />
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_roundrect"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:text="非常健康"
+            android:id="@+id/tv_healthstate"
+            android:layout_below="@+id/img_baby"
+            android:layout_centerHorizontal="true" />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:text="身高"
+            android:textSize="10sp"
+            android:layout_below="@+id/tv_healthstate"
+            android:layout_alignStart="@+id/img_setting"
+            android:layout_marginStart="19dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:textSize="10sp"
+            android:text="体重"
+            android:layout_below="@+id/tv_healthstate"
+            android:layout_alignEnd="@+id/img_email"
+            android:layout_marginEnd="17dp" />
+
+        <TextView
+            android:id="@+id/tv_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="49.5cm"
+            android:textSize="15sp"
+            android:layout_below="@+id/textView2"
+            android:layout_alignStart="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/tv_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_alignStart="@+id/textView3"
+            android:layout_below="@+id/textView3"
+            android:text="4.72kg" />
+
+        <TextView
+            android:id="@+id/tv_daily"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/img_setting"
+            android:layout_below="@+id/tv_length"
+            android:layout_marginTop="16dp"
+            android:text="@string/home_daily"
+            android:layout_alignEnd="@+id/img_email" />
+    <Button
+        android:id="@+id/btn_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="更多宝贝健康状况>>"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@+id/tv_daily"
+        android:layout_alignParentStart="true" />
+    </RelativeLayout>

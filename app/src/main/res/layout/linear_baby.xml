@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:weightSum="6"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_margin="15dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="这是体检报告的结果"
+            android:textColor="@color/colorHome" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:weightSum="3">
+
+
+        <Button
+            android:id="@+id/btn_examination"
+            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="一键体检"
+            android:textSize="16sp"
+            android:textColor="#7c7979"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:drawableTop="@drawable/icon_examination">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_nurse"
+            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="育儿助手"
+            android:textSize="16sp"
+            android:textColor="#7c7979"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:drawableTop="@drawable/icon_nurse">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_record"
+            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="宝宝记录"
+            android:textSize="16sp"
+            android:textColor="#7c7979"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:drawableTop="@drawable/icon_record">
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+
+        <Button
+            android:id="@+id/btn_vaccine"
+            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="疫苗提醒"
+            android:textSize="16sp"
+            android:textColor="#7c7979"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:drawableTop="@drawable/icon_vaccine">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_statistics"
+            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="数据统计"
+            android:textSize="16sp"
+            android:textColor="#7c7979"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:drawableTop="@drawable/icon_statistics">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_doctor"
+            android:layout_width="130dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="咨询医生"
+            android:textSize="16sp"
+            android:textColor="#7c7979"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:drawableTop="@drawable/icon_doctor">
+        </Button>
+    </LinearLayout>
+
+
+</LinearLayout>
