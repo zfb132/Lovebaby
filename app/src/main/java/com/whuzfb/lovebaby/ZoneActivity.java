@@ -2,6 +2,7 @@ package com.whuzfb.lovebaby;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -86,7 +87,10 @@ public class ZoneActivity extends Activity implements View.OnClickListener,AbsLi
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(ZoneActivity.this,"这是第"+(position+1)+"幅图像", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ZoneActivity.this,"这是第"+(position+1)+"幅图像", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent();
+                intent.setClass(ZoneActivity.this,NoteActivity.class);
+                startActivity(intent);
             }
         });
     }

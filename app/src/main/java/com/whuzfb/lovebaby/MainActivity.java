@@ -68,7 +68,7 @@ public class MainActivity extends Activity implements OnPageChangeListener,View.
         intent.putExtra("id", 3);
         mViews.add(getView("QualityActivity3", intent));
 
-        intent.setClass(this, HomeActivity.class);
+        intent.setClass(this, NoteActivity.class);
         intent.putExtra("id", 4);
         mViews.add(getView("QualityActivity4", intent));
 
@@ -132,6 +132,7 @@ public class MainActivity extends Activity implements OnPageChangeListener,View.
 
     }
 
+
     private void resetOtherTabs()
     {
         for (int i = 0; i < mTabIndicator.size(); i++)
@@ -139,6 +140,7 @@ public class MainActivity extends Activity implements OnPageChangeListener,View.
             mTabIndicator.get(i).setIconAlpha(0);
         }
     }
+
 
     private void initTabIndicator()
     {

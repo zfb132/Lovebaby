@@ -34,6 +34,11 @@
             android:name=".ZoneActivity"
             android:label="@string/app_activity_3" />
 
+        <activity
+            android:name=".NoteActivity"
+            android:label="@string/app_activity_4" />
+
+
     </application>
 
 </manifest>
