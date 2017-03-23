@@ -7,9 +7,12 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,7 +35,7 @@ import java.util.Iterator;
  * Created by zfb15 on 2017/3/20.
  */
 
-public class NoteActivity extends Activity implements View.OnClickListener,AbsListView.OnScrollListener{
+public class NoteActivity extends AppCompatActivity implements View.OnClickListener,AbsListView.OnScrollListener{
     private View view=null;
     private ListView listView=null;
     private RelativeLayout relativeLayout=null;
@@ -47,12 +50,17 @@ public class NoteActivity extends Activity implements View.OnClickListener,AbsLi
     private int viewItemCount;
     public boolean flag_end=false;
     public ModeCallback mCallback;
+    private ActionBar actionBar;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.linear_note);
 
+        //Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
         listView=(ListView)findViewById(R.id.listview_note) ;
         //view = getLayoutInflater().inflate(R.layout.relative_home_listheader, null);
         //relativeLayout=(RelativeLayout)view.findViewById(R.id.linear_home);
@@ -238,7 +246,7 @@ public class NoteActivity extends Activity implements View.OnClickListener,AbsLi
         if (listView.isItemChecked(position)) {
             view.setBackgroundColor(Color.parseColor("#bb40ffc6"));
         } else {
-            view.setBackgroundColor(Color.parseColor("#ffffff"));
+            view.setBackgroundColor(Color.parseColor("#00ffffff"));
         }
 
 
@@ -314,7 +322,7 @@ public class NoteActivity extends Activity implements View.OnClickListener,AbsLi
                         (TextView)mMultiSelectActionBarView.findViewById(R.id.tv_number);
             }
             mode.setCustomView(mMultiSelectActionBarView);
-            ((TextView)mMultiSelectActionBarView.findViewById(R.id.title)).setText("select_item");
+            ((TextView)mMultiSelectActionBarView.findViewById(R.id.title)).setText("已被选中");
             return true;
         }
         @Override

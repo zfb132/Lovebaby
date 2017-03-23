@@ -3,7 +3,7 @@
     <string name="app_activity_1">Home</string>
     <string name="app_activity_2">iBaby</string>
     <string name="app_activity_3">MomZone</string>
-    <string name="app_activity_4">User</string>
+    <string name="app_activity_4">        笔记</string>
     <string name="tab_home">主页</string>
     <string name="tab_baby">iBaby</string>
     <string name="tab_zone">妈妈圈</string>

@@ -4,11 +4,14 @@
     android:layout_width="match_parent"
     android:id="@+id/linear_zone"
     android:layout_height="match_parent">
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="我的圈子"/>
     <com.whuzfb.lovebaby.MyGridView
+        android:layout_marginLeft="8dp"
         android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

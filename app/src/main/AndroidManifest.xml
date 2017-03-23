@@ -35,10 +35,19 @@
             android:label="@string/app_activity_3" />
 
         <activity
-            android:name=".NoteActivity"
+            android:name=".UserActivity"
             android:label="@string/app_activity_4" />
 
-
+        <!--
+        actionbar这里有个大坑：
+        按照谷歌官网教程：
+        https://developer.android.com/training/appbar/setting-up.html#utility
+        生成的Actionbar不会被长按现实的bar覆盖，而是接在上面
+        -->
+        <activity
+            android:name=".NoteActivity"
+            android:label="                        笔记"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +56,7 @@ public class ZoneActivity extends Activity implements View.OnClickListener,AbsLi
         listView=(ListView)findViewById(R.id.listview_zone) ;
         view = getLayoutInflater().inflate(R.layout.linear_zone_listheader, null);
         linearLayout=(LinearLayout)view.findViewById(R.id.linear_zone);
+
 
         listView.addHeaderView(linearLayout,null,true);
 
@@ -363,7 +366,7 @@ public class ZoneActivity extends Activity implements View.OnClickListener,AbsLi
                 //按比例统一缩放图片
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 //设置间距
-                imageView.setPadding(10,8,8,8);
+                imageView.setPadding(8,8,8,8);
             } else{
                 imageView=(ImageView)convertView;
             }

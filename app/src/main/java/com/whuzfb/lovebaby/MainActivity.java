@@ -68,7 +68,7 @@ public class MainActivity extends Activity implements OnPageChangeListener,View.
         intent.putExtra("id", 3);
         mViews.add(getView("QualityActivity3", intent));
 
-        intent.setClass(this, NoteActivity.class);
+        intent.setClass(this, UserActivity.class);
         intent.putExtra("id", 4);
         mViews.add(getView("QualityActivity4", intent));
 

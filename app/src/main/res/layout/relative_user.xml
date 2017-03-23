@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:text="TextView" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:src="@drawable/icon_setting" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="vertical"
+        android:background="@color/colorHome">
+
+        <com.whuzfb.lovebaby.CircleImageView
+            android:id="@+id/img_user"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/splash"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="1dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/tv_user_name"
+            android:text="zzz"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:id="@+id/tv_user_vote"
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            android:text="3"/>
+
+        <TextView
+            android:id="@+id/tv_user_concern"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="3"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:id="@+id/tv_user_fans"
+            android:textSize="18sp"
+            android:text="3"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="0"
+        android:layout_height="25dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:id="@+id/tv_user_vote_1"
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            android:text="我的赞"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:id="@+id/tv_user_concern_1"
+            android:textSize="18sp"
+            android:text="我的关注"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:id="@+id/tv_user_fans_1"
+            android:textSize="18sp"
+            android:text="我的粉丝"/>
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <LinearLayout style="@style/top_layout">
+            <TextView style="@style/usertext" android:text="我的收藏" />
+            <ImageView style="@style/img_arrow"/>
+        </LinearLayout>
+
+        <!-- 分割线 -->
+        <View style="@style/bg_line"/>
+        <!-- 无圆角-->
+        <LinearLayout style="@style/mid_layout">
+            <TextView style="@style/usertext" android:text="我的发帖" />
+            <ImageView style="@style/img_arrow"/>
+        </LinearLayout>
+        <View style="@style/bg_line"/>
+        <!-- 下圆角-->
+        <LinearLayout style="@style/bottom_layout">
+            <TextView style="@style/usertext" android:text="我的评论" />
+            <ImageView style="@style/img_arrow"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 全圆角-->
+    <LinearLayout style="@style/wrap_layout">
+        <LinearLayout style="@style/single_layout">
+            <TextView style="@style/usertext" android:text="意见反馈"/>
+            <ImageView style="@style/img_arrow"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
