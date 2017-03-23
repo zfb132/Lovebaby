@@ -119,7 +119,6 @@ public class NoteActivity extends Activity implements View.OnClickListener,AbsLi
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         this.viewItemCount = visibleItemCount;
         viewLastIndex = firstVisibleItem + visibleItemCount - 1;
-        Log.d("TAG","$$$$$$$$$$$$");
     }
 
     //滑动状态改变时被调用
@@ -128,11 +127,9 @@ public class NoteActivity extends Activity implements View.OnClickListener,AbsLi
         int itemsLastIndex = adapter.getCount() - 1;    //数据集最后一项的索引
         //去掉底部的loadMoreView项，因此不加1
         int lastIndex = itemsLastIndex ;
-        Log.d("TAG","**********");
         if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE && viewLastIndex == lastIndex) {
             //自动加载,可以在这里放置异步加载数据
-            Log.d("TAG","______________");
-            //loadData();
+            loadData();
             //数据集变化后,通知adapter
             adapter.notifyDataSetChanged();
             //设置选中项，如果不加这个flag则会导致最后一个时footview显示不全
@@ -158,7 +155,6 @@ public class NoteActivity extends Activity implements View.OnClickListener,AbsLi
             item.setContent("这是标题()"+i);
             mList.add(item);
         }
-
     }
 
     public void initListView(){
@@ -390,11 +386,8 @@ public class NoteActivity extends Activity implements View.OnClickListener,AbsLi
         mCallback.updateSeletedCount();
     }
 
-
-
     public void delete() {
         SparseBooleanArray m=listView.getCheckedItemPositions();
-
         if(m!=null){
             //Iterator<NoteListItem> sListIterator = mList.iterator();
             //
@@ -405,7 +398,6 @@ public class NoteActivity extends Activity implements View.OnClickListener,AbsLi
             }
             adapter.notifyDataSetChanged();
         }
-
     }
 
 }

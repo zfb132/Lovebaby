@@ -84,7 +84,6 @@ public class MainActivity extends Activity implements OnPageChangeListener,View.
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
         if (positionOffset > 0)
         {
             ChangeColorIconWithTextView left = mTabIndicator.get(position);

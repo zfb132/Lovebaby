@@ -16,8 +16,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:text="这是体检报告的结果"
+            android:textSize="23sp"
+            android:text="@string/check_results"
             android:textColor="@color/colorHome" />
     </LinearLayout>
 
@@ -65,14 +65,14 @@
             android:layout_width="130dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="宝宝记录"
+            android:text="宝贝日记"
             android:textSize="16sp"
             android:textColor="#7c7979"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"
             android:paddingRight="5dp"
             android:paddingBottom="5dp"
-            android:drawableTop="@drawable/icon_record">
+            android:drawableTop="@drawable/icon_diary">
         </Button>
     </LinearLayout>
 

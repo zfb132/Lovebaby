@@ -33,7 +33,7 @@ public class ZoneActivity extends Activity implements View.OnClickListener,AbsLi
     private View view=null;
     private LinearLayout linearLayout=null;
     private Integer[] mThumbIds={
-            R.drawable.icon_baby,R.drawable.icon_doctor,R.drawable.icon_email,R.drawable.icon_examination,
+            R.drawable.img_zone_1,R.drawable.img_zone_2,R.drawable.img_zone_3,R.drawable.img_zone_4,
     };
 
     public ArrayList<ZoneListItem> mList;
@@ -82,7 +82,7 @@ public class ZoneActivity extends Activity implements View.OnClickListener,AbsLi
 
 
         //这是gridview
-        GridView gridView=(GridView)view.findViewById(R.id.gridview);
+        MyGridView gridView=(MyGridView)view.findViewById(R.id.gridview);
         gridView.setAdapter(new myImageAdapter(this));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -363,7 +363,7 @@ public class ZoneActivity extends Activity implements View.OnClickListener,AbsLi
                 //按比例统一缩放图片
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 //设置间距
-                imageView.setPadding(8,8,8,8);
+                imageView.setPadding(10,8,8,8);
             } else{
                 imageView=(ImageView)convertView;
             }
@@ -371,5 +371,4 @@ public class ZoneActivity extends Activity implements View.OnClickListener,AbsLi
             return imageView;
         }
     }
-
 }

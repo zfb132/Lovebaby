@@ -25,12 +25,13 @@
             android:id="@+id/img_manual"
             android:scaleType="fitXY"
             android:src="@drawable/icon_baby"/>
+
         <TextView
+            android:id="@+id/tv_manual"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:id="@+id/tv_manual"
             android:text="新生儿疫苗应该怎么打？"
-            android:textSize="30sp"
+            android:textSize="23sp"
             android:textStyle="bold" />
     </LinearLayout>
 

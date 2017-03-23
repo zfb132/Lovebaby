@@ -8,9 +8,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="我的圈子"/>
-    <GridView
+    <com.whuzfb.lovebaby.MyGridView
         android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="3"/>
+        android:numColumns="3" />
 </LinearLayout>

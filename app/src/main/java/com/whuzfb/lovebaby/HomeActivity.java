@@ -139,10 +139,10 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
         int i = 0;
         for (; i < 4; i++) {
             item = new ListItem();
-            item.setImage(getResources().getDrawable(R.drawable.icon_setting));
+            item.setImage(getResources().getDrawable(R.drawable.img_home_1));
             item.setTextcolor(Color.parseColor("#9A32CD"));
-            item.setTitle("这是标题");
-            item.setManual("这是内容");
+            item.setTitle("萌宝修炼手册");
+            item.setManual("宝宝体重变轻了是怎么回事？");
             mList.add(item);
         }
     }
