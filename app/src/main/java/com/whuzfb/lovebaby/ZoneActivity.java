@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -31,6 +33,7 @@ import java.util.ArrayList;
  */
 
 public class ZoneActivity extends Activity implements View.OnClickListener,AbsListView.OnScrollListener{
+    private ImageView img_zone_email=null;
     private ListView listView=null;
     private View view=null;
     private LinearLayout linearLayout=null;
@@ -52,6 +55,18 @@ public class ZoneActivity extends Activity implements View.OnClickListener,AbsLi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.linear_zone);
+
+        //初始化
+        img_zone_email=(ImageView)findViewById(R.id.img_zone_email);
+        img_zone_email.setOnClickListener(this);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "没有处理函数", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         listView=(ListView)findViewById(R.id.listview_zone) ;
         view = getLayoutInflater().inflate(R.layout.linear_zone_listheader, null);
@@ -90,10 +105,7 @@ public class ZoneActivity extends Activity implements View.OnClickListener,AbsLi
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(ZoneActivity.this,"这是第"+(position+1)+"幅图像", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent();
-                intent.setClass(ZoneActivity.this,NoteActivity.class);
-                startActivity(intent);
+                Toast.makeText(ZoneActivity.this,"这是第"+(position+1)+"幅图像", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -101,19 +113,13 @@ public class ZoneActivity extends Activity implements View.OnClickListener,AbsLi
 
     @Override
     public void onClick(View v) {
-        /*
         switch (v.getId()){
-            case R.id.img_setting:
-                Toast.makeText(ZoneActivity.this,"这是tt",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.img_email:
-                Toast.makeText(ZoneActivity.this,"pppt",Toast.LENGTH_SHORT).show();
+            case R.id.img_zone_email:
+                Toast.makeText(ZoneActivity.this,"你点击了邮箱图标",Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
         }
-        */
-        Toast.makeText(ZoneActivity.this,"pppt",Toast.LENGTH_SHORT).show();
     }
 
 

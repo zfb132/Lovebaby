@@ -21,13 +21,12 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="100dp"
-            android:id="@+id/img_email_zone"
+            android:id="@+id/img_zone_email"
             android:src="@drawable/icon_email"/>
     </LinearLayout>
 
     <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,7 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/icon_setting" />
+            android:background="@color/colorHome"
+            android:src="@drawable/icon_fab" />
 
     </android.support.design.widget.CoordinatorLayout>
 

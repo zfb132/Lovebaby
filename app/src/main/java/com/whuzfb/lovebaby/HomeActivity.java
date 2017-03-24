@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -24,6 +25,9 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
     private ListView listView=null;
     private RelativeLayout relativeLayout=null;
     private ImageView img_setting=null;
+    private ImageView img_email=null;
+    private ImageView img_baby=null;
+    private Button btn_more=null;
 
     public ArrayList<ListItem> mList;
     public MainListViewAdapter adapter;
@@ -42,8 +46,16 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
         listView=(ListView)findViewById(R.id.listview_manual) ;
         view = getLayoutInflater().inflate(R.layout.relative_home_listheader, null);
         relativeLayout=(RelativeLayout)view.findViewById(R.id.linear_home);
+
+        //设置其他图标的点击响应
         img_setting=(ImageView)view.findViewById(R.id.img_setting);
         img_setting.setOnClickListener(this);
+        img_email=(ImageView)view.findViewById(R.id.img_email);
+        img_email.setOnClickListener(this);
+        img_baby=(ImageView)view.findViewById(R.id.img_baby);
+        img_baby.setOnClickListener(this);
+        btn_more=(Button)view.findViewById(R.id.btn_more);
+        btn_more.setOnClickListener(this);
 
         listView.addHeaderView(relativeLayout,null,true);
 
@@ -78,10 +90,16 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.img_setting:
-                Toast.makeText(HomeActivity.this,"这是tt",Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this,"你点击了设置图标",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.img_email:
-                Toast.makeText(HomeActivity.this,"pppt",Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this,"你点击了邮箱图标",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.img_baby:
+                Toast.makeText(HomeActivity.this,"你点击了baby头像",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btn_more:
+                Toast.makeText(HomeActivity.this,"你想要查看更多内容吗？",Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
