@@ -285,8 +285,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-    /*
-    //多选
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -295,16 +294,20 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.action_choice){
+        if(item.getItemId() == R.id.item_add){
             //这里使用了一点技巧来实现处于选中状态 但是0个item 被选择
-            Log.d("TAG","wwwwwwwwwwwww");
-            listView.setItemChecked(0,true);
-            listView.clearChoices();
-            mCallback.updateSeletedCount();
+            //Log.d("TAG","wwwwwwwwwwwww");
+
+            //listView.setItemChecked(0,true);
+            //listView.clearChoices();
+            //mCallback.updateSeletedCount();
+            Toast.makeText(NoteActivity.this,"点击我就会添加",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(NoteActivity.this,"点击我就会删除",Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
-    */
+
 
 
     private class ModeCallback implements ListView.MultiChoiceModeListener {
