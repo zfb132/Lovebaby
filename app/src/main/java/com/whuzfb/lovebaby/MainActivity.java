@@ -32,7 +32,6 @@ public class MainActivity extends Activity implements OnPageChangeListener,View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         manager = new LocalActivityManager(this, true);
         manager.dispatchCreate(savedInstanceState);
 
@@ -152,13 +151,22 @@ public class MainActivity extends Activity implements OnPageChangeListener,View.
         mTabIndicator.add(two);
         mTabIndicator.add(three);
         mTabIndicator.add(four);
-
         one.setOnClickListener(this);
         two.setOnClickListener(this);
         three.setOnClickListener(this);
         four.setOnClickListener(this);
-
         one.setIconAlpha(1.0f);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode<=3){
+            HomeActivity homeActivity = (HomeActivity) manager.getActivity("QualityActivity1");
+            homeActivity.handleresult(requestCode,resultCode,data);
+        }else{
+            UserActivity userActivity = (UserActivity) manager.getActivity("QualityActivity4");
+            userActivity.handleresult(requestCode,resultCode,data);
+        }
     }
 }
 

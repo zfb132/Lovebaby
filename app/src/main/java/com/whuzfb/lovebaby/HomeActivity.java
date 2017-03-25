@@ -1,25 +1,46 @@
 package com.whuzfb.lovebaby;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
+@SuppressLint("SdCardPath")
 public class HomeActivity extends Activity implements View.OnClickListener,AbsListView.OnScrollListener{
     private View view=null;
     private ListView listView=null;
@@ -28,6 +49,10 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
     private ImageView img_email=null;
     private ImageView img_baby=null;
     private Button btn_more=null;
+
+    private Bitmap head;//头像Bitmap
+    private static String path="/sdcard/myHead/";//sd路径
+
 
     public ArrayList<ListItem> mList;
     public MainListViewAdapter adapter;
@@ -53,7 +78,13 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
         img_email=(ImageView)view.findViewById(R.id.img_email);
         img_email.setOnClickListener(this);
         img_baby=(ImageView)view.findViewById(R.id.img_baby);
-        img_baby.setOnClickListener(this);
+        registerForContextMenu(img_baby);
+        img_baby.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openContextMenu(v);
+            }
+        });
         btn_more=(Button)view.findViewById(R.id.btn_more);
         btn_more.setOnClickListener(this);
 
@@ -106,7 +137,6 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
         }
     }
 
-
     //滑动时被调用
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
@@ -131,7 +161,6 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
         }
     }
 
-
     //加载数据
     private void loadData() {
         flag++;
@@ -145,7 +174,6 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
             item.setTextcolor(Color.parseColor("#9A32CD"));
             item.setTitle("这是标题()");
             item.setManual("这是内容()");
-            Log.d("TAG",i+"走到这里了");
             mList.add(item);
         }
 
@@ -164,10 +192,6 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
             mList.add(item);
         }
     }
-
-
-
-
 
     //定义ListView适配器MainListViewAdapter
     class MainListViewAdapter extends BaseAdapter {
@@ -283,6 +307,123 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
 
         public void setTextcolor(int color){
             this.textcolor=color;
+        }
+    }
+
+
+    //以下内容用来实现更换头像
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        menu.add(0,1,0," 从相册选择");
+        menu.add(0,2,0,"使用相机拍照");
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case 1:
+                //Toast.makeText(HomeActivity.this,"你",Toast.LENGTH_SHORT).show();
+                //调用手机相册的方法,该方法在下面有具体实现
+                Intent intent1 = new Intent(Intent.ACTION_PICK, null);
+                intent1.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                //此处必须通过调用父Activity的startActivityForResult()然后再在父Activity中把函数传递到此处
+                //如果不是用的复合结构，直接调用就可以。
+                getParent().startActivityForResult(intent1, 1);
+                break;
+            case 2:
+                //Toast.makeText(HomeActivity.this,"吗？",Toast.LENGTH_SHORT).show();
+                //调用手机照相机的方法,通过Intent调用系统相机完成拍照，并调用系统裁剪器裁剪照片
+                Intent intent2 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                intent2.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment.getExternalStorageDirectory(),
+                        "head.jpg")));
+                getParent().startActivityForResult(intent2, 2);//采用ForResult打开
+                break;
+        }
+        return super.onContextItemSelected(item);
+    }
+
+
+    //该方法实现通过何种方式跟换图片
+    //@Override
+    public void handleresult(int requestCode, int resultCode, Intent data) {
+        Log.d("TAG","走到这里了");
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    cropPhoto(data.getData());//裁剪图片
+                }
+                break;
+            case 2:
+                if (resultCode == RESULT_OK) {
+                    File temp = new File(Environment.getExternalStorageDirectory()
+                            + "/head.jpg");
+                    cropPhoto(Uri.fromFile(temp));//裁剪图片
+                }
+                break;
+            case 3:
+                if (data != null) {
+                    Bundle extras = data.getExtras();
+                    head = extras.getParcelable("data");
+                    if(head!=null){
+                        /**
+                         * 上传服务器代码
+                         */
+                        setPicToView(head);//保存在SD卡中
+                        img_baby.setImageBitmap(head);//用ImageView显示出来
+                    }
+                }
+                break;
+            default:
+                break;
+
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * 调用系统的裁剪
+     * @param uri
+     */
+    public void cropPhoto(Uri uri) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        intent.putExtra("crop", "true");
+        // aspectX aspectY 是宽高的比例
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        // outputX outputY 是裁剪图片宽高
+        intent.putExtra("outputX", 150);
+        intent.putExtra("outputY", 150);
+        intent.putExtra("return-data", true);
+        getParent().startActivityForResult(intent, 3);
+    }
+
+    private void setPicToView(Bitmap mBitmap) {
+        String sdStatus = Environment.getExternalStorageState();
+        if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { // 检测sd是否可用
+            return;
+        }
+        FileOutputStream b = null;
+        File file = new File(path);
+        file.mkdirs();// 创建文件夹
+        String fileName =path + "head.jpg";//图片名字
+        try {
+            b = new FileOutputStream(fileName);
+            mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                //关闭流
+                b.flush();
+                b.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }
