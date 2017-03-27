@@ -3,6 +3,7 @@ package com.whuzfb.lovebaby;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.UiModeManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -58,6 +59,7 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.linear_note);
+
 
         //Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
@@ -259,7 +261,6 @@ public class NoteActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //封装了两个资源的类
-    //为了区别系统应用而加一个颜色
     class NoteListItem {
         private String content;
 

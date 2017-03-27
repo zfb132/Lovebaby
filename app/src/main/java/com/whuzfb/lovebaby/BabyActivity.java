@@ -48,6 +48,9 @@ public class BabyActivity extends Activity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.btn_examination:
                 Toast.makeText(BabyActivity.this,"你点击了一键体检按钮",Toast.LENGTH_SHORT).show();
+                Intent intenta=new Intent();
+                intenta.setClass(BabyActivity.this,CheckBody.class);
+                startActivity(intenta);
                 break;
             case R.id.btn_nurse:
                 Toast.makeText(BabyActivity.this,"你点击了育儿助手按钮",Toast.LENGTH_SHORT).show();

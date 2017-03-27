@@ -137,6 +137,7 @@ public class HomeActivity extends Activity implements View.OnClickListener,AbsLi
         }
     }
 
+
     //滑动时被调用
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
