@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<books>
+    <book num="001">这是1</book>
+    <book num="002">这是2</book>
+    <book num="003">这是3</book>
+</books>
